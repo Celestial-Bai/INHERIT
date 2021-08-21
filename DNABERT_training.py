@@ -15,16 +15,15 @@ if __name__ == '__main__':
                         default='')
     PARSER.add_argument("--checkpoint",
                         type=str,
-                        default = '')           
+                        default = '')
     PARSER.add_argument("--outdir",
                         type=str,
                         required=True)
 
     args = PARSER.parse_args()
 
-        sdict = torch.load(args.checkpoint)
     ##### Hyperparamters: in Network_config #####
-    pid = 'checkpoints_IGN'
+    pid = 'checkpoints_DNABERT'
     path = os.getcwd() + "/" + str(pid)
     if os.path.exists(path) is False:
         os.makedirs(path)
@@ -45,13 +44,10 @@ if __name__ == '__main__':
     train_loader = DataLoader(train_data, batch_size=TR_BATCHSIZE, shuffle=True, num_workers=TR_WORKERS)
     val_data = IGNDataset(X_seq=X_val, y=y_val, tokenizer=tokenizer)
     val_loader = DataLoader(val_data, batch_size=VAL_BATCHSIZE, shuffle=True, num_workers=VAL_WORKERS)
-    bertmodel = Baseline_IGN(freeze_bert=False, config=config, bac_bert_dir=BAC_PTRMODEL, pha_bert_dir=PHA_PTRMODEL)
-    bac_bert_params = list(map(id, bertmodel.bacbert.parameters()))
-    pha_bert_params = list(map(id, bertmodel.phabert.parameters()))
-    bert_params = bac_bert_params + pha_bert_params 
+    bertmodel = Baseline_BERT(freeze_bert=False, config=config, bert_dir = args.bertdir)
+    bert_params = list(map(id, bertmodel.bert.parameters()))
     new_params = filter(lambda p: id(p) not in bert_params, bertmodel.parameters())
-    opt = torch.optim.Adam([{'params': bertmodel.bacbert.parameters(), 'lr': LEARNING_RATE},
-                                  {'params': bertmodel.phabert.parameters(), 'lr': LEARNING_RATE},
+    opt = torch.optim.Adam([{'params': bertmodel.bert.parameters(), 'lr': LEARNING_RATE},
                                   {'params': new_params}], lr=LEARNING_RATE)
     if torch.cuda.device_count() > 1:
         bertmodel = torch.nn.DataParallel(bertmodel)
@@ -128,7 +124,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Loss")
         plt.title("Loss plot")
-        plt.savefig("Lossplot_withpretrain_new.png")
+        plt.savefig("Lossplot_new.png")
         plt.cla()
         plt.plot(range(1,len(train_acc_value) + 1), train_acc_value, marker='o', mec='r', mfc='w', label=u'Training Accuracy')
         plt.plot(range(1,len(train_acc_value) + 1), val_acc_value, marker='*', ms=10, label=u'Validation Accuracy')
@@ -139,7 +135,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Accuracy")
         plt.title("Accuracy plot")
-        plt.savefig("Accplot_withpretrain_new.png")
+        plt.savefig("Accplot_new.png")
         torch.save(bertmodel.state_dict(), pid + '/' + 'checkpoint_' + str(epoch) + '_' + args.outdir)
         early_stopping(val_acc, bertmodel)
         if early_stopping.early_stop:
