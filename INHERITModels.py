@@ -1,5 +1,5 @@
 # Author: Zeheng Bai
-##### IGNITER DNABERT MODELS #####
+##### DNABERT AND INHERIT MODELS #####
 from basicsetting import *
 from transformers.tokenization_dna import DNATokenizer
 from transformers import (
@@ -39,7 +39,7 @@ from transformers import glue_processors as processors
 from transformers import BertModel
 from transformers import BatchEncoding
 
-class Baseline_BERT(torch.nn.Module):
+class Baseline_DNABERT(torch.nn.Module):
     def __init__(self, config, freeze_bert=True, bert_dir=''):
         super(Baseline_BERT, self).__init__()
         if bert_dir == '':
@@ -56,7 +56,7 @@ class Baseline_BERT(torch.nn.Module):
         out = self.regressor(cls)
         return out
 
-class Baseline_IGN(torch.nn.Module):
+class Baseline_IHT(torch.nn.Module):
     def __init__(self, config, bac_bert_dir, pha_bert_dir, freeze_bert=True):
         super(Baseline_BERT, self).__init__()
         self.bacbert = BertForSequenceClassification.from_pretrained(bac_bert_dir)

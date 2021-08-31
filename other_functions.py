@@ -1,5 +1,6 @@
 # Author: Zeheng Bai
-##### IGNITER GENERATE TRAINING AND VALIDATION SETS AND TEST THE SHAPE TO BE BALANCED #####
+##### INHERIT GENERATE TRAINING AND VALIDATION SETS AND TEST THE SHAPE TO BE BALANCED #####
+##### MANY FUNCTIONS WILL BE PROPOSED HERE #####
 from basicsetting import *
 from readfasta import read_fasta, read_from_file_with_enter, write_fasta_cleaned
 

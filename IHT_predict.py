@@ -1,10 +1,11 @@
 # Author: Zeheng Bai
-##### IGNITER FOR PREDICTION #####
+##### INHERIT FOR PREDICTION #####
+# Device: GPU #
 from basicsetting import *
 from readfasta import *
-from DNABERTModels import *
+from INHERITModels import *
 from Dataset_config import *
-from IGN_config import *
+from IHT_config import *
 import math
 
 def prediction(input_sequence, tokenizer, bertmodel, batch_size=TR_BATCHSIZE):
@@ -73,9 +74,9 @@ if __name__ == '__main__':
     ######### Load Model #########
     config = BertConfig.from_pretrained(CONFIG_PATH)
     if args.withpretrain == "True":
-        bertmodel = Baseline_IGN(freeze_bert=True, config=config, bac_bert_dir=BAC_PTRMODEL, pha_bert_dir=PHA_PTRMODEL)
+        bertmodel = Baseline_IHT(freeze_bert=True, config=config, bac_bert_dir=BAC_PTRMODEL, pha_bert_dir=PHA_PTRMODEL)
     elif args.withpretrain == "False":
-        bertmodel = Baseline_BERT(freeze_bert=True, config=config)
+        bertmodel = Baseline_DNABERT(freeze_bert=True, config=config)
     tokenizer = DNATokenizer.from_pretrained(CONFIG_PATH)
     if torch.cuda.device_count() > 1:
         bertmodel = torch.nn.DataParallel(bertmodel)

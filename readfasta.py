@@ -1,5 +1,5 @@
 #Author: Zeheng Bai
-##### IGNITER READ FASTA FILES #####
+##### INHERIT READ FASTA FILES #####
 from basicsetting import *
 segment_length = 500
 #### This code is inspired by DNABERT ####

@@ -1,5 +1,5 @@
 #Author: Zeheng Bai
-##### IGNITER GENERATE FASTA SEQUENCE FILE TO K-MERS FILE #####
+##### INHERIT GENERATE FASTA SEQUENCE FILE TO K-MERS FILE #####
 from basicsetting import *
 from readfasta import read_fasta
 

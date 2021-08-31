@@ -1,10 +1,11 @@
 # Author: Zeheng Bai
-##### IGNITER TRAINING TRANSFORMER MODEL #####
+##### TRAINING DNABERT WITHOUT PRETRAINING #####
+# Device: GPU #
 from basicsetting import *
 from readfasta import *
-from DNABERTModels import *
+from INHERITModels import *
 from Dataset_config import *
-from IGN_config import *
+from IHT_config import *
 import math
 import matplotlib.pyplot as plt
 
@@ -40,11 +41,11 @@ if __name__ == '__main__':
     X_val = X_pha_val + X_bac_val
     y_val = torch.cat((torch.ones(len(X_pha_val)), torch.zeros(len(X_bac_val))))
     y_val = y_val.to(torch.long).unsqueeze(1)
-    train_data = IGNDataset(X_seq=X_train, y=y_train, tokenizer=tokenizer)
+    train_data = IHTDataset(X_seq=X_train, y=y_train, tokenizer=tokenizer)
     train_loader = DataLoader(train_data, batch_size=TR_BATCHSIZE, shuffle=True, num_workers=TR_WORKERS)
-    val_data = IGNDataset(X_seq=X_val, y=y_val, tokenizer=tokenizer)
+    val_data = IHTDataset(X_seq=X_val, y=y_val, tokenizer=tokenizer)
     val_loader = DataLoader(val_data, batch_size=VAL_BATCHSIZE, shuffle=True, num_workers=VAL_WORKERS)
-    bertmodel = Baseline_BERT(freeze_bert=False, config=config, bert_dir = args.bertdir)
+    bertmodel = Baseline_DNABERT(freeze_bert=False, config=config, bert_dir = args.bertdir)
     bert_params = list(map(id, bertmodel.bert.parameters()))
     new_params = filter(lambda p: id(p) not in bert_params, bertmodel.parameters())
     opt = torch.optim.Adam([{'params': bertmodel.bert.parameters(), 'lr': LEARNING_RATE},
@@ -124,7 +125,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Loss")
         plt.title("Loss plot")
-        plt.savefig("Lossplot_new.png")
+        plt.savefig("Lossplot_DNABERT.png")
         plt.cla()
         plt.plot(range(1,len(train_acc_value) + 1), train_acc_value, marker='o', mec='r', mfc='w', label=u'Training Accuracy')
         plt.plot(range(1,len(train_acc_value) + 1), val_acc_value, marker='*', ms=10, label=u'Validation Accuracy')
@@ -135,7 +136,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Accuracy")
         plt.title("Accuracy plot")
-        plt.savefig("Accplot_new.png")
+        plt.savefig("Accplot_DNABERT.png")
         torch.save(bertmodel.state_dict(), pid + '/' + 'checkpoint_' + str(epoch) + '_' + args.outdir)
         early_stopping(val_acc, bertmodel)
         if early_stopping.early_stop:

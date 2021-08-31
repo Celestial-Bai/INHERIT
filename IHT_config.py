@@ -1,5 +1,5 @@
 # Author: Zeheng Bai
-##### IGNITER DNABERT MODELS #####
+##### INHERIT DNABERT MODELS #####
 from basicsetting import *
 
 CONFIG_PATH = '/yshare2/ZETTAI_path_WA_slash_home_KARA/home/zeheng/DNABERT_embedding/examples/transformers/dnabert-config/bert-config-6'

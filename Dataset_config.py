@@ -1,5 +1,5 @@
 # Author: Zeheng Bai
-##### IGNITER FINE-TUNING CONFIGS #####
+##### INHERIT FINE-TUNING CONFIGS #####
 from basicsetting import *
 from torch.autograd import Variable
 from torch.utils.data import Dataset, DataLoader
@@ -49,7 +49,7 @@ class EarlyStopping_acc:
         torch.save(model.state_dict(), self.checkpoint)
         self.val_loss_min = val_loss
 
-class IGNDataset(Dataset):
+class IHTDataset(Dataset):
     def __init__(self, X_seq, y, tokenizer):
         self.X_seq = X_seq
         self.y = y

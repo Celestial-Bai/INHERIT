@@ -1,3 +1,6 @@
+# Author: Zeheng Bai
+##### INHERIT BASIC SETTINGS #####
+##### THEY WILL USE IN ALL THE CODES #####
 import argparse
 import logging
 import os

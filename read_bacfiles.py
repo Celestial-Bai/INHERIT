@@ -1,5 +1,5 @@
 #Author: Zeheng Bai
-##### IGNITER GENERATE BACTERIA PRETRAINING & TRAINING SETS #####
+##### INHERIT GENERATE BACTERIA PRETRAINING & TRAINING SETS #####
 # Device: CPU #
 from basicsetting import *
 from readfasta import read_from_file_with_enter

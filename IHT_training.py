@@ -1,10 +1,11 @@
 # Author: Zeheng Bai
-##### IGNITER TRAINING TRANSFORMER MODEL #####
+##### INHERIT TRAINING MODEL #####
+# Device: GPU #
 from basicsetting import *
 from readfasta import *
-from DNABERTModels import *
+from INHERITModels import *
 from Dataset_config import *
-from IGN_config import *
+from IHT_config import *
 import math
 import matplotlib.pyplot as plt
 
@@ -24,7 +25,7 @@ if __name__ == '__main__':
 
         sdict = torch.load(args.checkpoint)
     ##### Hyperparamters: in Network_config #####
-    pid = 'checkpoints_IGN'
+    pid = 'checkpoints_IHT'
     path = os.getcwd() + "/" + str(pid)
     if os.path.exists(path) is False:
         os.makedirs(path)
@@ -41,11 +42,11 @@ if __name__ == '__main__':
     X_val = X_pha_val + X_bac_val
     y_val = torch.cat((torch.ones(len(X_pha_val)), torch.zeros(len(X_bac_val))))
     y_val = y_val.to(torch.long).unsqueeze(1)
-    train_data = IGNDataset(X_seq=X_train, y=y_train, tokenizer=tokenizer)
+    train_data = IHTDataset(X_seq=X_train, y=y_train, tokenizer=tokenizer)
     train_loader = DataLoader(train_data, batch_size=TR_BATCHSIZE, shuffle=True, num_workers=TR_WORKERS)
-    val_data = IGNDataset(X_seq=X_val, y=y_val, tokenizer=tokenizer)
+    val_data = IHTDataset(X_seq=X_val, y=y_val, tokenizer=tokenizer)
     val_loader = DataLoader(val_data, batch_size=VAL_BATCHSIZE, shuffle=True, num_workers=VAL_WORKERS)
-    bertmodel = Baseline_IGN(freeze_bert=False, config=config, bac_bert_dir=BAC_PTRMODEL, pha_bert_dir=PHA_PTRMODEL)
+    bertmodel = Baseline_IHT(freeze_bert=False, config=config, bac_bert_dir=BAC_PTRMODEL, pha_bert_dir=PHA_PTRMODEL)
     bac_bert_params = list(map(id, bertmodel.bacbert.parameters()))
     pha_bert_params = list(map(id, bertmodel.phabert.parameters()))
     bert_params = bac_bert_params + pha_bert_params 
@@ -128,7 +129,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Loss")
         plt.title("Loss plot")
-        plt.savefig("Lossplot_withpretrain_new.png")
+        plt.savefig("Lossplot_IHT.png")
         plt.cla()
         plt.plot(range(1,len(train_acc_value) + 1), train_acc_value, marker='o', mec='r', mfc='w', label=u'Training Accuracy')
         plt.plot(range(1,len(train_acc_value) + 1), val_acc_value, marker='*', ms=10, label=u'Validation Accuracy')
@@ -139,7 +140,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Accuracy")
         plt.title("Accuracy plot")
-        plt.savefig("Accplot_withpretrain_new.png")
+        plt.savefig("Accplot_IHT.png")
         torch.save(bertmodel.state_dict(), pid + '/' + 'checkpoint_' + str(epoch) + '_' + args.outdir)
         early_stopping(val_acc, bertmodel)
         if early_stopping.early_stop:
