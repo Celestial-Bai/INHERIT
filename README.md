@@ -1,10 +1,11 @@
-# IGHERIT 
+# IGHERIT
 
-This repository includes the implementation of "Identification of bacteriophages using deep representation model with pre-training". We are still developing this package and we will also try to make some improvements of it, so feel free to report to us if there are any issues occurred.   
+This repository includes the implementation of "Identification of bacteriophages using deep representation model with pre-training". We are still developing this package and we will also try to make some improvements of it, so feel free to report to us if there are any issues occurred.  
 
 Please cite our paper if you want to include or use INHERIT in your research.
 
-# Environment and requirements
+## Environment and requirements
+
 
 We use NVIDIA A100 GPUs to train INHERIT with CUDA 11.2.  We also tested our codes on other GPUs, like V100, and they can run smoothly.
 
@@ -34,13 +35,15 @@ starlette
 tensorflow
 ```
 
-# Dataset information
+
+## Dataset information
 
 We prepared the accessions of the bacterium and phage sequences used on pre-training sets, training sets, validation sets and test sets respectively. You can check them on **Dataset Information.xlsx** in **Supplements.zip**. Not only you can know which sequences we used, but you can also know how we get them.
 
-# Pre-trained models
 
-The pre-trained models are the important parts of INHERIT.  For the checkpoints of the pre-trained models we used, you can find in: 
+## Pre-trained models
+
+The pre-trained models are the important parts of INHERIT.  For the checkpoints of the pre-trained models we used, you can find in:
 
 To pre-train the models, we used DNABERT. We welcome everyone to build any new pre-trained models to improve the performance of INHERIT. Please refer the guides on [DNABERT 2.2 Model Training](https://github.com/jerryji1993/DNABERT#2-pre-train-skip-this-section-if-you-fine-tune-on-pre-trained-models) to get a new pre-trained model if you are interested. We also post the commands below:
 
@@ -85,30 +88,26 @@ python run_pretrain.py \
 ```
 
 
-
-# Fine-tuning
+## Fine-tuning
 
 Since we have too many hyperparameters, we used "IHT_config.py" to record the default hyperparameters we used. You can change them depending on the different scenario, and you can simply used:
-
 ```
 python3 IHT_training.py
 ```
-
 to train INHERIT.
-
 We also have prepared the code of DNABERT if you want to explore the difference between DNABERT and INHERIT. You can also simply used:
 
 ```
 python3 DNABERT_training.py
 ```
-
 to train DNABERT. Both of their training process are straightforward and easy. You do not need to add any other commands.
 
 You can download INHERIT on: 
 
-# Predict 
 
-You can use our example "test_phage.fasta" as an example to experience how INHERIT predicts them and to know how it performs. You can simply used
+## Predict 
+
+You can use our example "test_phage.fasta" as an example to experience how INHERIT predicts them and to know how it performs. You can simply used：
 
 ```
 python3 IGN_predict.py --sequence test_phage.fasta --withpretrain True --model INHERIT.pt --out test_out.txt
@@ -121,8 +120,6 @@ Here:
 **--withpretrain** means to use DNABERT or INHERIT. If you use INHERIT, you should type **True**, and you should type **False** if you use DNABERT.
 
 **--model** means the directory of the DNABERT or INHERIT file you want to use
-
-
 
 
 
