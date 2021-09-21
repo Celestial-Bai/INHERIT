@@ -1,6 +1,6 @@
-# IGHERIT
+# INHERIT
 
-This repository includes the implementation of "Identification of bacteriophages using deep representation model with pre-training". We are still developing this package and we will also try to make some improvements of it, so feel free to report to us if there are any issues occurred.  
+This repository includes the implementation of "Identification of bacteriophages using deep representation model with pre-training". We are still developing this package and we will also try to make some improvements of it, so feel free to report to us if there are any issues occurred. INHERIT is a model based on [DNABERT](https://github.com/jerryji1993/DNABERT) , an extension of [Huggingface's Transformers](https://github.com/huggingface/transformers).
 
 Please cite our paper if you want to include or use INHERIT in your research.
 
@@ -9,7 +9,7 @@ Please cite our paper if you want to include or use INHERIT in your research.
 
 We use NVIDIA A100 GPUs to train INHERIT with CUDA 11.2.  We also tested our codes on other GPUs, like V100, and they can run smoothly.
 
-Before you start to use INHERIT, you should download those packages before you run our codes. It should be noted that we will test to use Huggingface Transformers directly instead of using the source code in the future.  However, it should be noted that, different from the vanilla DNABERT extending the Transformers on 2.5.0, we used the Transformers 4.7.0 on the fine-tuning process (the results are the same). 
+Before you start to use INHERIT, you should download those packages before you run our codes. It should be noted that we will test to use Huggingface's  Transformers directly instead of using the source code in the future.  However, it should be noted that, different from the vanilla DNABERT extending the Transformers on 2.5.0, we used the Transformers 4.7.0 on the **fine-tuning** process (we prove the results are the same). 
 
 ```
 ##### All #####
@@ -19,7 +19,7 @@ torch
 collections
 tqdm
 
-##### transformers #####
+##### Transformers #####
 ##### We will try to use the whole package in the future #####
 tokenizers
 boto3
@@ -43,9 +43,9 @@ We prepared the accessions of the bacterium and phage sequences used on pre-trai
 
 ## Pre-trained models
 
-The pre-trained models are the important parts of INHERIT.  For the checkpoints of the pre-trained models we used, you can find in:
+The pre-trained models are the important parts of INHERIT.  For the checkpoints of the pre-trained models we used, you can find in: [Bacteria pre-trained model download](https://drive.google.com/drive/folders/1zMd5NL69JbnIT3T5eu824bipHddz0Uro?usp=sharing) and [Phage pre-trained model download link](https://drive.google.com/drive/folders/1Cs8SNcG0ryxsAjC-CWGDNTiV4THO-wuu?usp=sharing)
 
-To pre-train the models, we used DNABERT. We welcome everyone to build any new pre-trained models to improve the performance of INHERIT. Please refer the guides on [DNABERT 2.2 Model Training](https://github.com/jerryji1993/DNABERT#2-pre-train-skip-this-section-if-you-fine-tune-on-pre-trained-models) to get a new pre-trained model if you are interested. We also post the commands below:
+To pre-train the models, we used the original DNABERT codes to pre-train. Therefore, please refer the guides on [DNABERT 2.2 Model Training](https://github.com/jerryji1993/DNABERT#2-pre-train-skip-this-section-if-you-fine-tune-on-pre-trained-models) to get a new pre-trained model if you are interested.  We welcome everyone to build any new pre-trained models to improve the performance of INHERIT. We also post the commands below: 
 
 ```
 cd examples
@@ -102,7 +102,7 @@ python3 DNABERT_training.py
 ```
 to train DNABERT. Both of their training process are straightforward and easy. You do not need to add any other commands.
 
-You can download INHERIT on: 
+You can download INHERIT on: [Fine-tuned INHERIT download link](https://drive.google.com/file/d/1uGFZWKoonVMjFHD4bRmutoFMVZRMX6UG/view?usp=sharing)
 
 
 ## Predict 
