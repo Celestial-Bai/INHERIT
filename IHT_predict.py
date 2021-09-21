@@ -24,9 +24,6 @@ def prediction(input_sequence, tokenizer, bertmodel, batch_size=TR_BATCHSIZE):
     return preds
 
 def pred_fasta(fasta_path, kmer, segment_length, threshold):
-    """Read a Fasta into array of arrays, for LSTM input."""
-    # Read in file
-    # fasta = SeqIO.parse(fasta_path, "fasta")
     fasta_dic = segment_fasta(fasta_path, segment_length)
     outputfile = open(outfile, "a")
     for item_id in fasta_dic:

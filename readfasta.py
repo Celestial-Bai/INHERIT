@@ -149,6 +149,12 @@ def read_from_file_with_enter(filename):
     return seq
 
 def write_fasta_seq_names(seqdict, outdir, banned_list):
+    """
+    Write sequnece names
+    :param seqdict: The format after using read_from_file_with_enter.
+    :param banned_list: The names of the test set.
+    :return: The list of sequence accessions.
+    """
     seq_ids = sorted(list(seqdict.keys()))
     seq_ids1 = list(set(seq_ids))
     assert(len(seq_ids) == len(seq_ids1))

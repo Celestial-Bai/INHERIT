@@ -40,6 +40,7 @@ from transformers import BertModel
 from transformers import BatchEncoding
 
 class Baseline_DNABERT(torch.nn.Module):
+    '''DNABERT: without pre-trained models'''
     def __init__(self, config, freeze_bert=True, bert_dir=''):
         super(Baseline_BERT, self).__init__()
         if bert_dir == '':
@@ -57,6 +58,7 @@ class Baseline_DNABERT(torch.nn.Module):
         return out
 
 class Baseline_IHT(torch.nn.Module):
+    '''INHERIT: with two pre-trained models'''
     def __init__(self, config, bac_bert_dir, pha_bert_dir, freeze_bert=True):
         super(Baseline_BERT, self).__init__()
         self.bacbert = BertForSequenceClassification.from_pretrained(bac_bert_dir)
