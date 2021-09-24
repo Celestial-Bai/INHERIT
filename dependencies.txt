@@ -1,0 +1,21 @@
+##### All #####
+argparse
+numpy
+torch
+collections
+tqdm
+
+##### Transformers #####
+##### We will try to use the whole package in the future #####
+tokenizers
+boto3
+filelock
+requests
+regex
+sentencepiece
+sacremoses
+pydantic
+uvicorn
+fastapi
+starlette
+tensorflow
