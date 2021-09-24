@@ -102,6 +102,8 @@ uvicorn
 
 ## Predict 
 
+The pre-trained models are the important parts of INHERIT.  **Please first download those two pre-trained models before you use INHERIT**. For the checkpoints of the pre-trained models we used, you can find in: [Bacteria pre-trained model download link](https://drive.google.com/drive/folders/1zMd5NL69JbnIT3T5eu824bipHddz0Uro?usp=sharing) and [Phage pre-trained model download link](https://drive.google.com/drive/folders/1Cs8SNcG0ryxsAjC-CWGDNTiV4THO-wuu?usp=sharing)
+
 You can use our example "test_phage.fasta" as an example to experience how INHERIT predicts them and to know how it performs. You can simply used：
 
 ```
@@ -138,8 +140,6 @@ Our output is similar to [Seeker](https://github.com/gussow/seeker), and you can
 
 
 ## Pre-trained models
-
-The pre-trained models are the important parts of INHERIT.  For the checkpoints of the pre-trained models we used, you can find in: [Bacteria pre-trained model download link](https://drive.google.com/drive/folders/1zMd5NL69JbnIT3T5eu824bipHddz0Uro?usp=sharing) and [Phage pre-trained model download link](https://drive.google.com/drive/folders/1Cs8SNcG0ryxsAjC-CWGDNTiV4THO-wuu?usp=sharing)
 
 To pre-train the models, we used the original DNABERT codes to pre-train. Therefore, please refer the guides on [DNABERT 2.2 Model Training](https://github.com/jerryji1993/DNABERT#2-pre-train-skip-this-section-if-you-fine-tune-on-pre-trained-models) to get a new pre-trained model if you are interested.  We welcome everyone to build any new pre-trained models to improve the performance of INHERIT. We also post the commands below: 
 
