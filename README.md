@@ -79,7 +79,7 @@ rouge-score
 sacrebleu>=1.4.12
 sacremoses
 sagemaker>=2.31.0
-scikit-learn
+scikit-learn==0.24.1
 sentencepiece==0.1.91
 soundfile
 sphinx-copybutton
