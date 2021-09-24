@@ -1,12 +1,7 @@
-##### All #####
 argparse
 numpy
 torch
-collections
 tqdm
-
-##### Transformers #####
-##### We will try to use the whole package in the future #####
 tokenizers
 boto3
 filelock

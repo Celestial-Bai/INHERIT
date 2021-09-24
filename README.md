@@ -18,7 +18,7 @@ Please cite our paper if you want to include or use INHERIT in your research.
 ```
 git clone https://github.com/Celestial-Bai/INHERIT.git
 cd INHERIT
-pip install .
+pip install -r dependencies.txt
 ```
 
 
@@ -35,7 +35,6 @@ Before you start to use INHERIT, you should download those packages before you r
 argparse
 numpy
 torch
-collections
 tqdm
 
 ##### Transformers #####
