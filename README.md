@@ -61,7 +61,7 @@ You can use our example "test_phage.fasta" as an example to experience how INHER
 
 ```
 cd INHERIT
-python3 IGN_predict.py --sequence test_phage.fasta --withpretrain True --model INHERIT.pt --out test_out.txt
+python3 IHT_predict.py --sequence test_phage.fasta --withpretrain True --model INHERIT.pt --out test_out.txt
 ```
 
 to have a try.
