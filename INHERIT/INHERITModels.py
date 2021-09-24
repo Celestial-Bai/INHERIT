@@ -60,7 +60,7 @@ class Baseline_DNABERT(torch.nn.Module):
 class Baseline_IHT(torch.nn.Module):
     '''INHERIT: with two pre-trained models'''
     def __init__(self, config, bac_bert_dir, pha_bert_dir, freeze_bert=True):
-        super(Baseline_BERT, self).__init__()
+        super(Baseline_IHT, self).__init__()
         self.bacbert = BertForSequenceClassification.from_pretrained(bac_bert_dir)
         self.phabert = BertForSequenceClassification.from_pretrained(pha_bert_dir)
         if freeze_bert:
