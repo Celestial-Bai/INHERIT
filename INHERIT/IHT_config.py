@@ -18,5 +18,5 @@ VAL_WORKERS = 6
 EPOCHS = 100
 THRESHOLD = 0.5
 LEARNING_RATE = 1e-5
-BAC_PTRMODEL = $absolute_path_for_bac_pretrained_model
-PHA_PTRMODEL = $absolute_path_for_pha_pretrained_model
+BAC_PTRMODEL = 'bac_pretrained_model'
+PHA_PTRMODEL = 'pha_pretrained_model'
