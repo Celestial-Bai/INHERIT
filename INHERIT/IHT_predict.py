@@ -75,8 +75,8 @@ if __name__ == '__main__':
     elif args.withpretrain == "False":
         bertmodel = Baseline_DNABERT(freeze_bert=True, config=config)
     tokenizer = DNATokenizer.from_pretrained(CONFIG_PATH)
-    if torch.cuda.device_count() > 1:
-        bertmodel = torch.nn.DataParallel(bertmodel)
+    #if torch.cuda.device_count() > 1:
+    bertmodel = torch.nn.DataParallel(bertmodel)
     sdict = torch.load(args.model)
     bertmodel.load_state_dict(sdict)
     bertmodel.eval()
