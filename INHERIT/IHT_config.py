@@ -3,6 +3,7 @@
 from basicsetting import *
 
 ### You should replace '.' with their paths if they do not in $Your_current_workpath/INHERIT/INHERIT ###
+### Please put the pre-trained models in the same path of this code. If not, please use their absolute paths ###
 CONFIG_PATH = './transformers/dnabert-config/bert-config-6'
 #BAC_TR_PATH = './bac_training.txt'
 #PHA_TR_PATH = './pha_training.txt'
