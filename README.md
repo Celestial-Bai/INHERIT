@@ -10,9 +10,9 @@ Our package includes the resources of:
 - The pre-trained models and the fine-tuned model (INHERIT)
 - The information of the datasets we used
 - The benckmark results of Seeker, VIBRANT and INHERIT
-
-Please cite our paper if you want to include or use INHERIT in your research.
-
+ 
+Please cite our paper if you want to include or use INHERIT in your research: [INHERIT BioRxiv](https://www.biorxiv.org/content/10.1101/2021.09.25.461359v1)
+ 
 ## Installation
 
 ```
