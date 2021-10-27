@@ -23,7 +23,6 @@ if __name__ == '__main__':
 
     args = PARSER.parse_args()
 
-        sdict = torch.load(args.checkpoint)
     ##### Hyperparamters: in Network_config #####
     pid = 'checkpoints_IHT'
     path = os.getcwd() + "/" + str(pid)
