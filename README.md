@@ -1,6 +1,6 @@
-# Identification of bacteriophages using deep representation model with pre-training
+# Identification of bacteriophage genome sequences with representation learning
 
-![Pipeline_new](https://github.com/Celestial-Bai/INHERIT/blob/master/Figures/Pipeline.png)This repository includes the implementation of "Identification of bacteriophages using deep representation model with pre-training". Our method is developed for identifying phages from the metagenome sequences, and the past methods can be categorized into two types: database-based methods and alignment-free methods.  INHERIT integrated those two types of methods by pre-train-fine-tune paradigm. We compared the proposed method with [VIBRANT](https://github.com/AnantharamanLab/VIBRANT) and [Seeker](https://github.com/gussow/seeker) on a third-party benchmark dataset. Our experiments show that INHERIT achieves better performance than the database-based approach and the alignment-free method, with the best F1-score of 0.9868. 
+![Pipeline_new](https://github.com/Celestial-Bai/INHERIT/blob/master/pipeline.jpeg)This repository includes the implementation of "Identification of bacteriophages using deep representation model with pre-training". Our method is developed for identifying phages from the metagenome sequences, and the past methods can be categorized into two types: database-based methods and alignment-free methods.  INHERIT integrated those two types of methods by pre-train-fine-tune paradigm. We compared the proposed method with [VIBRANT](https://github.com/AnantharamanLab/VIBRANT) and [Seeker](https://github.com/gussow/seeker) on a third-party benchmark dataset. Our experiments show that INHERIT achieves better performance than the database-based approach and the alignment-free method, with the best F1-score of 0.9868. 
 
 We are still developing this package and we will also try to make some improvements of it, so feel free to report to us if there are any issues occurred. INHERIT is a model based on [DNABERT](https://github.com/jerryji1993/DNABERT) , an extension of [Huggingface's Transformers](https://github.com/huggingface/transformers).
 
@@ -11,7 +11,7 @@ Our package includes the resources of:
 - The information of the datasets we used
 - The benckmark results of Seeker, VIBRANT and INHERIT
  
-Please cite our paper if you want to include or use INHERIT in your research: [INHERIT BioRxiv](https://www.biorxiv.org/content/10.1101/2021.09.25.461359v1)
+Please cite our paper if you want to include or use INHERIT in your research: [INHERIT](https://academic.oup.com/bioinformatics/article/38/18/4264/6654586)
  
 ## Installation
 
@@ -203,13 +203,6 @@ python3 DNABERT_training.py
 ```
 
 to train DNABERT. Both of their training process are straightforward and easy. You do not need to add any other commands.
-
-
-
-## Dataset information and benchmark results
-
-We prepared the accessions of the bacterium and phage sequences used on pre-training sets, training sets, validation sets and test sets respectively. You can check them on **Dataset Information.xlsx** in **Supplements.zip**. Not only you can know which sequences we used, but you can also know how we get them. We also posted our benchmark results of Seeker, VIBRANT and INHERIT. You can check them on **Benchmark Results.xlsx** in **Supplements.zip**. 
-
 
 
 ## Reference
