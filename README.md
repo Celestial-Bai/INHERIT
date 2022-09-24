@@ -26,9 +26,9 @@ pip install -r dependencies.txt
 ## Environment and requirements
 
 
-We use NVIDIA A100 GPUs to train INHERIT with CUDA 11.2.  We also tested our codes on other GPUs, like V100, and they can run smoothly.
+We use NVIDIA A100 GPUs to train INHERIT with CUDA 11.4.  We also tested our codes on other GPUs, like V100, and they can run smoothly.
 
-Before you start to use INHERIT, you should download those packages before you run our codes. It should be noted that we will test to use Huggingface's  Transformers directly instead of using the source code in the future.  However, it should be noted that, different from the vanilla DNABERT extending the Transformers on 2.5.0, we used the Transformers 4.7.0 on the **fine-tuning** process (we prove the results are the same).  Please confirm your device **cannot have transformers package** when using or training INHERIT.
+Before you start to use INHERIT, you should download those packages before you run our codes. We used the Transformers 4.7.0 on the **fine-tuning** process (we prove the results are the same) It should be noted that we will test to use Huggingface's  Transformers directly instead of using the source code in the future for better usage :)
 
 ```
 ##### All #####
