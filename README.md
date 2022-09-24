@@ -104,39 +104,12 @@ uvicorn
 
 The pre-trained models are the important parts of INHERIT.  **Please first download those two pre-trained models before you use INHERIT**. For the checkpoints of the pre-trained models we used, you can find in: [Bacteria pre-trained model download link](https://drive.google.com/drive/folders/1zMd5NL69JbnIT3T5eu824bipHddz0Uro?usp=sharing) and [Phage pre-trained model download link](https://drive.google.com/drive/folders/1Cs8SNcG0ryxsAjC-CWGDNTiV4THO-wuu?usp=sharing)
 
-You can use our example "test_phage.fasta" as an example to experience how INHERIT predicts them and to know how it performs. You can simply used：
+You can simply used：
 
 ```
 cd INHERIT
-python3 IHT_predict.py --sequence test_phage.fasta --withpretrain True --model INHERIT.pt --out test_out.txt
+python3 IHT_predict.py --sequence test.fasta --withpretrain True --model INHERIT.pt --out test_out.txt
 ```
-
-to have a try.
-
-Here: 
-
-**--withpretrain** means to use DNABERT or INHERIT. If you use INHERIT, you should type **True**, and you should type **False** if you use DNABERT.
-
-**--model** means the directory of the DNABERT or INHERIT file you want to use
-
-You can download INHERIT on: [Fine-tuned INHERIT download link](https://drive.google.com/file/d/1uGFZWKoonVMjFHD4bRmutoFMVZRMX6UG/view?usp=sharing)
-
-Our output is similar to [Seeker](https://github.com/gussow/seeker), and you can also check the sample results in test_out.txt:
-
-```
-    name	category	score
-    NC_007636.1	Phage	0.9982988238334656
-    NC_030928.1	Phage	0.8466060161590576
-    NC_030937.1	Phage	0.8519585132598877
-    NC_041844.1	Phage	0.700873851776123
-    NC_041845.1	Phage	0.8881644010543823
-    NC_041846.1	Phage	0.8881642818450928
-    NC_041847.1	Phage	0.8000907301902771
-    NC_041848.1	Phage	0.7185130715370178
-    NC_041849.1	Phage	0.7798346877098083
-    NC_041850.1	Phage	0.897127628326416
-```
-
 
 
 ## Pre-trained models
