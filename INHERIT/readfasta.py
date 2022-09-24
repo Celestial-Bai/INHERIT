@@ -57,7 +57,7 @@ def segment_sequence(sequence, segment_length=segment_length):
     :param segment_length: Length of segment to divide into.
     :return: List of segments of size segment_length.
     """
-    assert len(sequence) > 200, "Sequence is fewer than 200 bases, minimum input is 200 bases"
+    assert len(sequence) > 10, "Sequence is fewer than 200 bases, minimum input is 200 bases"
     ret = []
 
     for start_idx in range(0, len(sequence), segment_length):

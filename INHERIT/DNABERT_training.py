@@ -24,7 +24,7 @@ if __name__ == '__main__':
     args = PARSER.parse_args()
 
     ##### Hyperparamters: in Network_config #####
-    pid = 'checkpoints_DNABERT'
+    pid = 'checkpoints_DNABERT_1'
     path = os.getcwd() + "/" + str(pid)
     if os.path.exists(path) is False:
         os.makedirs(path)
@@ -125,7 +125,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Loss")
         plt.title("Loss plot")
-        plt.savefig("Lossplot_DNABERT.png")
+        plt.savefig("Lossplot_DNABERT_1.png")
         plt.cla()
         plt.plot(range(1,len(train_acc_value) + 1), train_acc_value, marker='o', mec='r', mfc='w', label=u'Training Accuracy')
         plt.plot(range(1,len(train_acc_value) + 1), val_acc_value, marker='*', ms=10, label=u'Validation Accuracy')
@@ -136,7 +136,7 @@ if __name__ == '__main__':
         plt.xlabel(u"Epochs")
         plt.ylabel("Accuracy")
         plt.title("Accuracy plot")
-        plt.savefig("Accplot_DNABERT.png")
+        plt.savefig("Accplot_DNABERT_1.png")
         torch.save(bertmodel.state_dict(), pid + '/' + 'checkpoint_' + str(epoch) + '_' + args.outdir)
         early_stopping(val_acc, bertmodel)
         if early_stopping.early_stop:

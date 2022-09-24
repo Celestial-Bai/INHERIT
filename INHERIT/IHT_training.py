@@ -24,6 +24,7 @@ if __name__ == '__main__':
     args = PARSER.parse_args()
 
     ##### Hyperparamters: in Network_config #####
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     pid = 'checkpoints_IHT'
     path = os.getcwd() + "/" + str(pid)
     if os.path.exists(path) is False:
@@ -41,6 +42,7 @@ if __name__ == '__main__':
     X_val = X_pha_val + X_bac_val
     y_val = torch.cat((torch.ones(len(X_pha_val)), torch.zeros(len(X_bac_val))))
     y_val = y_val.to(torch.long).unsqueeze(1)
+    print(torch.cuda.is_available())
     train_data = IHTDataset(X_seq=X_train, y=y_train, tokenizer=tokenizer)
     train_loader = DataLoader(train_data, batch_size=TR_BATCHSIZE, shuffle=True, num_workers=TR_WORKERS)
     val_data = IHTDataset(X_seq=X_val, y=y_val, tokenizer=tokenizer)
@@ -67,7 +69,6 @@ if __name__ == '__main__':
     train_acc_value=[]
     val_loss_value=[]
     val_acc_value=[]
-    batchsize = TR_BATCHSIZE
     for epoch in range(EPOCHS):
         running_loss = 0.0
         valrun_loss = 0.0
@@ -76,6 +77,7 @@ if __name__ == '__main__':
         t = len(train_loader.dataset)
         bertmodel.train()
         with tqdm(total=100) as pbar:
+            batchsize = TR_BATCHSIZE
             for i, (x, y) in enumerate(train_loader):
                 X_seq = BatchEncoding(x)
                 X_seq = X_seq.to(device)
@@ -101,6 +103,9 @@ if __name__ == '__main__':
         train_acc_value.append(float(sum_correct / sum_total))
         bertmodel.eval()
         t = len(val_loader.dataset)
+        batchsize = VAL_BATCHSIZE
+        sum_correct = 0
+        sum_total = 0
         for i, (x, y) in enumerate(val_loader):
             X_seq = BatchEncoding(x)
             X_seq = X_seq.to(device)
