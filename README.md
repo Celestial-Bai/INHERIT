@@ -178,7 +178,7 @@ python3 DNABERT_training.py
 to train DNABERT. Both of their training process are straightforward and easy. You do not need to add any other commands.
 
  
-You can download INHERIT on: [Fine-tuned INHERIT download link](https://drive.google.com/file/d/1uGFZWKoonVMjFHD4bRmutoFMVZRMX6UG/view?usp=sharing)
+You can download INHERIT on: [Fine-tuned INHERIT download link](https://drive.google.com/file/d/169BaPS4BjK-cmnfabpyjNVTjFtyzhbyC/view?usp=sharing)
 
 ## Reference
 
