@@ -102,7 +102,7 @@ uvicorn
 
 ## Predict 
 
-The pre-trained models are the important parts of INHERIT.  **Please first download those two pre-trained models before you use INHERIT**. For the checkpoints of the pre-trained models we used, you can find in: [Bacteria pre-trained model download link](https://drive.google.com/drive/folders/1d0ubDne87j5rf5K6DYKSOKxnw_eGV-Dr?usp=sharing) and [Phage pre-trained model download link](https://drive.google.com/file/d/169BaPS4BjK-cmnfabpyjNVTjFtyzhbyC/view?usp=sharing)
+The pre-trained models are the important parts of INHERIT.  **Please first download those two pre-trained models before you use INHERIT**. For the checkpoints of the pre-trained models we used, you can find in: [Bacteria pre-trained model download link](https://drive.google.com/drive/folders/1d0ubDne87j5rf5K6DYKSOKxnw_eGV-Dr?usp=sharing) and [Phage pre-trained model download link](https://drive.google.com/drive/folders/17oyt613Hr4984SX7IX72fVP3zPrGADvB?usp=sharing)
 
 You can simply used：
 
