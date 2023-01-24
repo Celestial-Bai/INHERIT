@@ -8,8 +8,6 @@ Our package includes the resources of:
 
 - The source code of INHERIT
 - The pre-trained models and the fine-tuned model (INHERIT)
-- The information of the datasets we used
-- The benckmark results of Seeker, VIBRANT and INHERIT
  
 Please cite our paper if you want to include or use INHERIT in your research: [INHERIT](https://academic.oup.com/bioinformatics/article/38/18/4264/6654586)
  
